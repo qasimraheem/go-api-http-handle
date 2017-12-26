@@ -23,7 +23,7 @@ type data struct {
 
 type Res struct {
 	Success bool
-	Data struct{}
+	Data data
 }
 
 func handle(c echo.Context) error{
@@ -42,13 +42,13 @@ func handle(c echo.Context) error{
 	if error != nil {
 		fmt.Println("error:", error)
 	}
-	//var r Res
-	//r.Success = true
-	//r.Data = d[0]
+	var r Res
+	r.Success = true
+	r.Data = d[0]
 
-	fmt.Println( d[0])
+	fmt.Println( r)
 
-	return c.JSON(http.StatusOK, &d[0])
+	return c.JSON(http.StatusOK, r)
 }
 
 //func getEmail(c echo.Context) error {
