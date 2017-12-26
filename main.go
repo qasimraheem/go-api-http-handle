@@ -26,6 +26,7 @@ type Res struct {
 	Data data
 }
 
+
 func handle(c echo.Context) error{
 	resp, err := http.Get("https://api.coinmarketcap.com/v1/ticker/bitcoin/")
 	if err != nil {
