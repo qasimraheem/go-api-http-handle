@@ -23,9 +23,8 @@ type data struct {
 
 type Res struct {
 	Success bool
-	Data data
+	Data struct{}
 }
-
 
 func handle(c echo.Context) error{
 	resp, err := http.Get("https://api.coinmarketcap.com/v1/ticker/bitcoin/")
@@ -43,10 +42,13 @@ func handle(c echo.Context) error{
 	if error != nil {
 		fmt.Println("error:", error)
 	}
+	//var r Res
+	//r.Success = true
+	//r.Data = d[0]
 
-	fmt.Println( d)
+	fmt.Println( d[0])
 
-	return c.JSON(http.StatusOK, &d)
+	return c.JSON(http.StatusOK, &d[0])
 }
 
 //func getEmail(c echo.Context) error {
