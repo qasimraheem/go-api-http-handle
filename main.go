@@ -43,13 +43,10 @@ func handle(c echo.Context) error{
 	if error != nil {
 		fmt.Println("error:", error)
 	}
-	var r Res
-	r.Success = true
-	r.Data = d
 
-	fmt.Println( r)
+	fmt.Println( d)
 
-	return c.JSON(http.StatusOK, &r)
+	return c.JSON(http.StatusOK, &d)
 }
 
 //func getEmail(c echo.Context) error {
